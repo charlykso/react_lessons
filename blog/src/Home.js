@@ -1,31 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
 
-    const [blogs, setBlog] = useState([
-        { title: 'My new website', body: 'Lorem ipsum ...', author: "Ikenna", id: 1 },
-        { title: 'Welcome party', body: 'Lorem ipsum ...', author: "Ikenna", id: 2 },
-        { title: 'My travel', body: 'Lorem ipsum ...', author: "Remigius", id: 3 },
-    ]);
-    
-   
-    // const handleClickAgain = (name, e) => {
-    //     console.log("Hello " +name, e.target);
-    // }
+    const [blogs, setBlog] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/blogs')
+        .then(res => {
+            if (!res.ok) {
+                throw Error("could not fetch the data for the resource");
+            }
+            return res.json();
+        })
+        .then(data => {
+            setBlog(data);
+            setIsPending(false);
+            setError(null);
+        })
+        .catch(err => {
+            setIsPending(false);
+            setError(err.message);
+        })
+    }, []);
 
     return ( 
         <div className="home">
-            <BlogList blogs = {blogs} title = "This is my blog" />
-            <BlogList blogs = {blogs.filter((blog) => blog.author === "Ikenna")} title = "Ikenna's blog" />
-
-            {
-            /* <h2>Home Page</h2>
-            <button onClick = { handleClick }>Click me</button>
-            <p>{ name } is { age } years old</p>
-            <button onClick = {(e) => handleClickAgain("Ikenna", e)}>Click me again</button> */}
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {blogs && <BlogList blogs = {blogs} title="This is my blog" />}
         </div>
      );
 }
- 
+
 export default Home;

@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "id": 1,
+            "title": "My first blog",
+            "body": "lorem ipsium...",
+            "author": "Ikenna"
+        },
+        {
+            "id": 2,
+            "title": "Blessing's birthday party",
+            "body": "lorem ipsium...",
+            "author": "Charles"
+        }
+    ]
+}
