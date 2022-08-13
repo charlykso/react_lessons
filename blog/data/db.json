@@ -1,16 +1,22 @@
 {
-    "blogs": [
-        {
-            "id": 1,
-            "title": "My first blog",
-            "body": "lorem ipsium...",
-            "author": "Ikenna"
-        },
-        {
-            "id": 2,
-            "title": "Blessing's birthday party",
-            "body": "lorem ipsium...",
-            "author": "Charles"
-        }
-    ]
+  "blogs": [
+    {
+      "id": 1,
+      "title": "My first blog",
+      "body": "lorem ipsium...",
+      "author": "Ikenna"
+    },
+    {
+      "id": 2,
+      "title": "Blessing's birthday party",
+      "body": "lorem ipsium...",
+      "author": "Charles"
+    },
+    {
+      "title": "New day",
+      "body": "This is a new day.",
+      "author": "Charles",
+      "id": 3
+    }
+  ]
 }
