@@ -17,6 +17,12 @@
       "body": "This is a new day.",
       "author": "Charles",
       "id": 3
+    },
+    {
+      "title": "the new title",
+      "body": "this is my testing",
+      "author": "Remigius",
+      "id": 4
     }
   ]
 }
